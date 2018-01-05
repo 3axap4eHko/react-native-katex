@@ -1,8 +1,8 @@
 {
   "name": "react-native-katex",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "node scripts/prebuild.js && babel src --out-dir dist --ignore __tests__",
     "test": "echo \"Error: no test specified\" && exit 1"

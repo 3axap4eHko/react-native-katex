@@ -1,0 +1,39 @@
+{
+  "name": "react-native-katex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/prebuild.js && babel src --out-dir dist --ignore __tests__",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3axap4eHko/react-native-katex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3axap4eHko/react-native-katex/issues"
+  },
+  "homepage": "https://github.com/3axap4eHko/react-native-katex#readme",
+  "dependencies": {
+    "katex": "^0.9.0-alpha2",
+    "prop-types": "^15.6.0"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-native": "^0.50.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-native": "^0.51.0"
+  }
+}

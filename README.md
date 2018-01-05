@@ -38,7 +38,7 @@ html, body {
 ```
 
 <p align="center">
-  <img src="https://3axap4eHko.github.io/react-native-katex/screenshot.png" width="380" alt="React Native KaTeX">
+  <img src="https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png" width="380" alt="React Native KaTeX">
 </p>
 
 ## License

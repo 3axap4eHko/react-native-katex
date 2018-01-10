@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WebView } from 'react-native';
+import { WebView, StyleSheet } from 'react-native';
 
 import katexStyle from './katex-style';
 import katexScript from './katex-script';
@@ -25,6 +25,27 @@ ${katexScript}
 `;
 }
 
+const defaultStyle = StyleSheet.create({
+  root: {
+    height: 40,
+  }
+});
+
+const defaultInlineStyle = `
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.katex {
+  margin: 0;
+  display: flex;
+}
+`;
+
 export default class Katex extends Component {
 
   static propTypes = {
@@ -43,7 +64,8 @@ export default class Katex extends Component {
     displayMode: false,
     throwOnError: false,
     errorColor: '#f00',
-    inlineStyle: '',
+    inlineStyle: defaultInlineStyle,
+    style: defaultStyle,
     macros: {},
     colorIsTextColor: false,
     onLoad: () => {},

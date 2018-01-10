@@ -1,7 +1,7 @@
 {
   "name": "react-native-katex",
   "version": "0.2.1",
-  "description": "",
+  "description": "WebView bundled KaTeX",
   "main": "dist/index.js",
   "scripts": {
     "build": "node scripts/prebuild.js && babel src --out-dir dist --ignore __tests__",

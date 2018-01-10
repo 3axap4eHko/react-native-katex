@@ -1,6 +1,6 @@
 # React Native <img src="https://khan.github.io/KaTeX/katex-logo.svg" width="130" alt="KaTeX">
 
-WebView bundled KaTeX
+[WebView](https://facebook.github.io/react-native/docs/webview.html) bundled [KaTeX](https://github.com/Khan/KaTeX)
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]

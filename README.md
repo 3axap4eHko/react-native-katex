@@ -1,5 +1,11 @@
 # React Native <img src="https://khan.github.io/KaTeX/katex-logo.svg" width="130" alt="KaTeX">
 
+WebView bundled KaTeX
+
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+
 ## Usage
 ```javascript
 import { StyleSheet } from 'react-native';
@@ -32,6 +38,11 @@ html, body {
   expression="c=\pm\sqrt{a^2 + b^2}"
   style={styles.katex}
   inlineStyle={inlineStyle}
+  displayMode={false}
+  throwOnError={false}
+  errorColor="#f00"
+  macros={{}}
+  colorIsTextColor={false}
   onLoad={()=> this.setState({ loaded: true })}
   onError={() => console.error('Error')}
 />
@@ -44,3 +55,10 @@ html, body {
 ## License
 License [The MIT License](http://opensource.org/licenses/MIT)
 Copyright (c) 2017 Ivan Zakharchanka
+
+[downloads-image]: https://img.shields.io/npm/dm/react-native-katex.svg
+[npm-url]: https://www.npmjs.com/package/react-native-katex
+[npm-image]: https://img.shields.io/npm/v/react-native-katex.svg
+
+[travis-url]: https://travis-ci.org/3axap4eHko/react-native-katex
+[travis-image]: https://img.shields.io/travis/3axap4eHko/react-native-katex/master.svg

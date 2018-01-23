@@ -2,7 +2,7 @@
   "name": "react-native-katex",
   "version": "0.2.2",
   "description": "WebView bundled KaTeX",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "node scripts/prebuild.js && babel src --out-dir dist --ignore __tests__",
     "release": "yarn build && npm version minor && npm publish",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/3axap4eHko/react-native-katex#readme",
   "dependencies": {
-    "katex": "^0.9.0-alpha2",
+    "katex": "^0.9.0-beta",
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {

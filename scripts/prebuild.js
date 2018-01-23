@@ -9,6 +9,10 @@ const katexScriptFile = resolve(KATEX_DIR, 'katex.min.js');
 const katexScript = readFileSync(katexScriptFile, 'utf8');
 writeFileSync(resolve(SOURCE_DIR, 'katex-script.js'), `export default ${JSON.stringify(katexScript)}`);
 
+const katexAutoRenderScriptFile = resolve(KATEX_DIR, 'contrib/auto-render.min.js');
+const katexAutoRenderScript = readFileSync(katexAutoRenderScriptFile, 'utf8');
+writeFileSync(resolve(SOURCE_DIR, 'katex-auto-render-script.js'), `export default ${JSON.stringify(katexAutoRenderScript)}`);
+
 const katexStyleFile = resolve(KATEX_DIR, 'katex.min.css');
 const katexStyleOrigin = readFileSync(katexStyleFile, 'utf8');
 const katexStyleClean = katexStyleOrigin.replace(/@font-face{.*?}/g, '');
@@ -46,12 +50,10 @@ fontNames.forEach(fontName => {
   src: url('data:application/font-woff2;base64,${fontData.toString('base64')}') format('${fontType}');
   font-weight: ${fontWeight};
   font-style: ${fontStyle};
-}    
+}
 `);
     });
 });
 const fontStyle = fonts.join('\n');
 
 writeFileSync(resolve(SOURCE_DIR, 'katex-style.js'), `export default ${JSON.stringify(fontStyle + katexStyleClean)}`);
-
-

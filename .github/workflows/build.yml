@@ -1,0 +1,29 @@
+name: Github CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependecies
+        run: |
+            yarn
+      - name: Run build process
+        run: |
+            yarn build
+#      - name: Publish
+#        run: |
+#            npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.npm_token}}

@@ -1,0 +1,12 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js: [13]
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+install:
+  - yarn
+script:
+  - yarn build

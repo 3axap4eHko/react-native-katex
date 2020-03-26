@@ -2,11 +2,12 @@
   "name": "react-native-katex",
   "version": "0.3.0",
   "description": "WebView bundled KaTeX",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "build": "node scripts/prebuild.js && babel src --out-dir dist --ignore __tests__",
-    "release": "yarn build && npm version minor && npm publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clear": "rm -rf build src/katex-script.* src/katex-style.*",
+    "compile": "node scripts/prebuild.js",
+    "build": "yarn clear && yarn compile && tsc",
+    "release": "yarn build && npm version minor && npm publish"
   },
   "repository": {
     "type": "git",
@@ -20,21 +21,18 @@
   },
   "homepage": "https://github.com/3axap4eHko/react-native-katex#readme",
   "dependencies": {
-    "katex": "^0.10.0-beta",
-    "prop-types": "^15.6.0"
+    "react-native-webview": "^9.0.1"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
+    "react": "16.*",
+    "react-native": "0.*"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "react": "^16.2.0",
-    "react-native": "^0.55.4"
+    "@types/react": "^16.9.25",
+    "@types/react-native": "^0.61.23",
+    "katex": "^0.11.1",
+    "react": "^16.13.1",
+    "react-native": "^0.61.5",
+    "typescript": "^3.8.3"
   }
 }

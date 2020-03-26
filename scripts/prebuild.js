@@ -7,7 +7,7 @@ const SOURCE_DIR = resolve(__dirname, '../src');
 
 const katexScriptFile = resolve(KATEX_DIR, 'katex.min.js');
 const katexScript = readFileSync(katexScriptFile, 'utf8');
-writeFileSync(resolve(SOURCE_DIR, 'katex-script.js'), `export default ${JSON.stringify(katexScript)}`);
+writeFileSync(resolve(SOURCE_DIR, 'katex-script.ts'), `export default ${JSON.stringify(katexScript)};`);
 
 const katexStyleFile = resolve(KATEX_DIR, 'katex.min.css');
 const katexStyleOrigin = readFileSync(katexStyleFile, 'utf8');
@@ -35,12 +35,12 @@ const fonts = [];
 
 fontNames.forEach(fontName => {
   fontFiles
-    .filter(fontFile => fontFile.includes(fontName))
-    .forEach(fontFile => {
-      const fontData = readFileSync(`${KATEX_FONT_DIR}/${fontFile}`);
-      const fontWeight = /bold/i.test(fontFile) ? 'bold' : 'normal';
-      const fontStyle = /italic/i.test(fontFile) ? 'italic' : 'normal';
-      fonts.push(`
+  .filter(fontFile => fontFile.includes(fontName))
+  .forEach(fontFile => {
+    const fontData = readFileSync(`${KATEX_FONT_DIR}/${fontFile}`);
+    const fontWeight = /bold/i.test(fontFile) ? 'bold' : 'normal';
+    const fontStyle = /italic/i.test(fontFile) ? 'italic' : 'normal';
+    fonts.push(`
 @font-face {
   font-family: '${fontName}';
   src: url('data:application/font-woff2;base64,${fontData.toString('base64')}') format('${fontType}');
@@ -48,10 +48,9 @@ fontNames.forEach(fontName => {
   font-style: ${fontStyle};
 }    
 `);
-    });
+  });
 });
+
 const fontStyle = fonts.join('\n');
 
-writeFileSync(resolve(SOURCE_DIR, 'katex-style.js'), `export default ${JSON.stringify(fontStyle + katexStyleClean)}`);
-
-
+writeFileSync(resolve(SOURCE_DIR, 'katex-style.ts'), `export default ${JSON.stringify(fontStyle + katexStyleClean)};`);

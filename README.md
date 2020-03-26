@@ -1,10 +1,11 @@
-# React Native <img src="https://khan.github.io/KaTeX/katex-logo.svg" width="130" alt="KaTeX">
+# React Native [<img src="https://katex.org/img/katex-logo-black.svg" width="130" alt="KaTeX">](https://katex.org/)
 
-[WebView](https://facebook.github.io/react-native/docs/webview.html) bundled [KaTeX](https://github.com/Khan/KaTeX)
+[react-native-webview](https://github.com/react-native-community/react-native-webview) bundled with [KaTeX](https://github.com/Khan/KaTeX)
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Github CI Status][github-image]][github-url]
+[![Travis CI Status][travis-image]][travis-url]
 
 ## Usage
 ```javascript
@@ -54,11 +55,14 @@ html, body {
 
 ## License
 License [The MIT License](http://opensource.org/licenses/MIT)
-Copyright (c) 2017 Ivan Zakharchanka
+Copyright (c) 2017-2020 Ivan Zakharchanka
 
 [downloads-image]: https://img.shields.io/npm/dm/react-native-katex.svg
 [npm-url]: https://www.npmjs.com/package/react-native-katex
 [npm-image]: https://img.shields.io/npm/v/react-native-katex.svg
+
+[github-url]: https://github.com/3axap4eHko/react-native-katex/actions
+[github-image]: https://github.com/3axap4eHko/evnty/workflows/Github%20CI/badge.svg?branch=master
 
 [travis-url]: https://travis-ci.org/3axap4eHko/react-native-katex
 [travis-image]: https://img.shields.io/travis/3axap4eHko/react-native-katex/master.svg

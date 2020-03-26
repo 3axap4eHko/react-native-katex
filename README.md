@@ -62,7 +62,7 @@ Copyright (c) 2017-2020 Ivan Zakharchanka
 [npm-image]: https://img.shields.io/npm/v/react-native-katex.svg
 
 [github-url]: https://github.com/3axap4eHko/react-native-katex/actions
-[github-image]: https://github.com/3axap4eHko/evnty/workflows/Github%20CI/badge.svg?branch=master
+[github-image]: https://github.com/3axap4eHko/react-native-katex/workflows/Github%20CI/badge.svg?branch=master
 
 [travis-url]: https://travis-ci.org/3axap4eHko/react-native-katex
 [travis-image]: https://img.shields.io/travis/3axap4eHko/react-native-katex/master.svg

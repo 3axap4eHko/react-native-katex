@@ -7,6 +7,14 @@
 [![Github CI Status][github-image]][github-url]
 [![Travis CI Status][travis-image]][travis-url]
 
+## Example
+
+[EXPO Snack][expo-url]
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png" width="380" alt="React Native KaTeX">  
+</p>
+
 ## Usage
 ```javascript
 import { StyleSheet } from 'react-native';
@@ -49,10 +57,6 @@ html, body {
 />
 ```
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png" width="380" alt="React Native KaTeX">
-</p>
-
 ## License
 License [The MIT License](http://opensource.org/licenses/MIT)
 Copyright (c) 2017-2020 Ivan Zakharchanka
@@ -66,3 +70,6 @@ Copyright (c) 2017-2020 Ivan Zakharchanka
 
 [travis-url]: https://travis-ci.org/3axap4eHko/react-native-katex
 [travis-image]: https://img.shields.io/travis/3axap4eHko/react-native-katex/master.svg
+
+[expo-image]: https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png
+[expo-url]: https://snack.expo.io/@3axap4ehko/react-native-katex

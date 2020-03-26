@@ -3,6 +3,7 @@
   "version": "0.4.0",
   "description": "WebView bundled KaTeX",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "clear": "rm -rf build src/katex-script.* src/katex-style.*",
     "compile": "node scripts/prebuild.js",

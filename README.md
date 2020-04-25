@@ -43,18 +43,26 @@ html, body {
 }
 `;
 
-<Katex
-  expression="c=\pm\sqrt{a^2 + b^2}"
-  style={styles.katex}
-  inlineStyle={inlineStyle}
-  displayMode={false}
-  throwOnError={false}
-  errorColor="#f00"
-  macros={{}}
-  colorIsTextColor={false}
-  onLoad={()=> this.setState({ loaded: true })}
-  onError={() => console.error('Error')}
-/>
+export default function App() {
+  const [loaded, setLoaded] = useState(false);
+  const [expression, setExpression] = useState("c=\\pm\\sqrt{a^2 + b^2}");
+  setTimeout(() => setExpression("d=\\pm\\sqrt{a^2 + b^2}"), 2000);
+
+  return (
+      <Katex
+          expression={expression}
+          style={styles.katex}
+          inlineStyle={inlineStyle}
+          displayMode={false}
+          throwOnError={false}
+          errorColor="#f00"
+          macros={{}}
+          colorIsTextColor={false}
+          onLoad={() => setLoaded(true)}
+          onError={() => console.error('Error')}
+      />
+  );
+}
 ```
 
 ## License

@@ -12,21 +12,18 @@
 [EXPO Snack][expo-url]
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png" width="380" alt="React Native KaTeX">  
+  <img src="screenshot.jpg" width="380" alt="React Native KaTeX">
 </p>
 
 ## Usage
 ```javascript
-import { StyleSheet } from 'react-native';
-import Katex from 'react-native-katex';
-
 const styles = StyleSheet.create({
   katex: {
     flex: 1,
   }
 });
 
-const inlineStyle =`
+const inlineStyle = `
 html, body {
   display: flex;
   background-color: #fafafa;
@@ -44,26 +41,40 @@ html, body {
 `;
 
 export default function App() {
+  const inlineText = 'inline text';
   const [loaded, setLoaded] = useState(false);
-  const [expression, setExpression] = useState("c=\\pm\\sqrt{a^2 + b^2}");
-  setTimeout(() => setExpression("d=\\pm\\sqrt{a^2 + b^2}"), 2000);
+  const [expression, setExpression] = useState(`\\text{${inlineText} }c=\\pm\\sqrt{a^2 + b^2}`);
+  setTimeout(() => setExpression(`\\text{${inlineText} }d=\\pm\\sqrt{a^2 + b^2}\\text{ still}`), 2000);
 
   return (
-      <Katex
-          expression={expression}
-          style={styles.katex}
-          inlineStyle={inlineStyle}
-          displayMode={false}
-          throwOnError={false}
-          errorColor="#f00"
-          macros={{}}
-          colorIsTextColor={false}
-          onLoad={() => setLoaded(true)}
-          onError={() => console.error('Error')}
-      />
+    <Katex
+      expression={expression}
+      style={styles.katex}
+      inlineStyle={inlineStyle}
+      displayMode={false}
+      throwOnError={false}
+      errorColor="#f00"
+      macros={{}}
+      colorIsTextColor={false}
+      onLoad={() => setLoaded(true)}
+      onError={() => console.error('Error')}
+    />
   );
 }
 ```
+
+An approach with inline is just wrap everything into `View` component
+```typescript
+export default function App() {
+  return (
+    <View style={{ flexDirection: 'row' }}>
+      <Katex />
+      <Text></Text>
+    </View>
+  )
+}
+```
+
 
 ## License
 License [The MIT License](http://opensource.org/licenses/MIT)

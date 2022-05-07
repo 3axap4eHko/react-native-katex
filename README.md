@@ -63,22 +63,10 @@ export default function App() {
 }
 ```
 
-An approach with inline is just wrap everything into `View` component
-```typescript
-export default function App() {
-  return (
-    <View style={{ flexDirection: 'row' }}>
-      <Katex />
-      <Text></Text>
-    </View>
-  )
-}
-```
-
 
 ## License
 License [The MIT License](http://opensource.org/licenses/MIT)
-Copyright (c) 2017-2020 Ivan Zakharchanka
+Copyright (c) 2017-2022 Ivan Zakharchanka
 
 [downloads-image]: https://img.shields.io/npm/dm/react-native-katex.svg
 [npm-url]: https://www.npmjs.com/package/react-native-katex

@@ -4,7 +4,7 @@ import { WebView, WebViewProps } from "react-native-webview";
 
 import katexStyle from "./katex-style";
 import katexScript from "./katex-script";
-import { KatexOptions, TrustContext } from "katex";
+import type { KatexOptions, TrustContext } from "katex";
 
 export interface ContentOptions extends KatexOptions {
   inlineStyle?: string;

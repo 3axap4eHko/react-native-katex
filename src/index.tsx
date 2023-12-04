@@ -1,32 +1,10 @@
-import React from 'react';
-import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
-import { WebView } from 'react-native-webview';
+import React from "react";
+import { StyleProp, StyleSheet, ViewStyle } from "react-native";
+import { WebView, WebViewProps } from "react-native-webview";
 
-import katexStyle from './katex-style';
-import katexScript from './katex-script';
-
-export interface TrustContext {
-  command: string
-  url: string
-  protocol: string
-}
-
-export interface KatexOptions {
-  displayMode?: boolean;
-  output?: 'html' | 'mathml' | 'htmlAndMathml';
-  leqno?: boolean;
-  fleqn?: boolean;
-  throwOnError?: boolean;
-  errorColor?: string;
-  macros?: any;
-  minRuleThickness?: number;
-  colorIsTextColor?: boolean;
-  maxSize?: number;
-  maxExpand?: number;
-  strict?: boolean | string | Function;
-  trust?: boolean | ((context: TrustContext) => boolean);
-  globalGroup?: boolean;
-}
+import katexStyle from "./katex-style";
+import katexScript from "./katex-script";
+import { KatexOptions, TrustContext } from "katex";
 
 export interface ContentOptions extends KatexOptions {
   inlineStyle?: string;
@@ -34,22 +12,26 @@ export interface ContentOptions extends KatexOptions {
 }
 
 function getContent({ inlineStyle, expression, ...options }: ContentOptions) {
-  return `<!DOCTYPE html>
-<html>
-<head>
-<style>
-${katexStyle}
-${inlineStyle}
-</style>
-<script>
-window.onerror = e => document.write(e);
-window.onload = () => katex.render(${JSON.stringify(expression)}, document.body, ${JSON.stringify(options)});
-${katexScript}
-</script>
-</head>
-<body>
-</body>
-</html>
+  return `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <style>
+        ${katexStyle}
+        ${inlineStyle}
+      </style>
+      <script>
+        window.onerror = e => document.write(e);
+        window.onload = () => katex.render(${JSON.stringify(
+          expression
+        )}, document.body, ${JSON.stringify(options)});
+        ${katexScript}
+      </script>
+    </head>
+    <body></body>
+  </html>  
 `;
 }
 
@@ -60,7 +42,7 @@ const defaultStyle = StyleSheet.create({
 });
 
 const defaultInlineStyle = `
-html, body {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,29 +58,38 @@ html, body {
 
 export interface KatexProps extends ContentOptions {
   style: StyleProp<ViewStyle>;
-  onLoad: any;
-  onError: any;
+  onLoad?: WebViewProps["onLoad"];
+  onError?: WebViewProps["onError"];
+  webviewProps?: WebViewProps;
 }
 
-export default function Katex({ style, onLoad, onError, ...options }: KatexProps) {
-  return <WebView
+export default function Katex({
+  style,
+  onLoad,
+  onError,
+  webviewProps,
+  ...options
+}: KatexProps) {
+  return (
+    <WebView
       style={style}
       source={{ html: getContent(options) }}
       onLoad={onLoad}
       onError={onError}
-      renderError={onError}
-  />;
+      {...webviewProps}
+    />
+  );
 }
 
 Katex.defaultProps = {
-  expression: '',
+  expression: "",
   displayMode: false,
   throwOnError: false,
-  errorColor: '#f00',
+  errorColor: "#f00",
   inlineStyle: defaultInlineStyle,
   style: defaultStyle,
   macros: {},
   colorIsTextColor: false,
-  onLoad: Boolean,
-  onError: Boolean,
 };
+
+export { KatexOptions, TrustContext };

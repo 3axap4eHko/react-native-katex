@@ -11,7 +11,7 @@ export interface ContentOptions extends KatexOptions {
   expression?: string;
 }
 
-function getContent({ inlineStyle, expression, ...options }: ContentOptions) {
+export function getKatexContent({ inlineStyle, expression, ...options }: ContentOptions) {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -73,7 +73,7 @@ export default function Katex({
   return (
     <WebView
       style={style}
-      source={{ html: getContent(options) }}
+      source={{ html: getKatexContent(options) }}
       onLoad={onLoad}
       onError={onError}
       {...webviewProps}

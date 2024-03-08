@@ -1,6 +1,6 @@
 {
   "name": "react-native-katex",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "WebView bundled KaTeX",
   "main": "build/index.js",
   "types": "build/index.d.ts",

@@ -5,7 +5,6 @@
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
 [![Github CI Status][github-image]][github-url]
-[![Travis CI Status][travis-image]][travis-url]
 
 ## Example
 
@@ -66,7 +65,7 @@ export default function App() {
 
 ## License
 License [The MIT License](http://opensource.org/licenses/MIT)
-Copyright (c) 2017-2022 Ivan Zakharchanka
+Copyright (c) 2017-2024 Ivan Zakharchanka
 
 [downloads-image]: https://img.shields.io/npm/dm/react-native-katex.svg
 [npm-url]: https://www.npmjs.com/package/react-native-katex
@@ -74,9 +73,6 @@ Copyright (c) 2017-2022 Ivan Zakharchanka
 
 [github-url]: https://github.com/3axap4eHko/react-native-katex/actions
 [github-image]: https://github.com/3axap4eHko/react-native-katex/workflows/Github%20CI/badge.svg?branch=master
-
-[travis-url]: https://travis-ci.org/3axap4eHko/react-native-katex
-[travis-image]: https://img.shields.io/travis/3axap4eHko/react-native-katex/master.svg
 
 [expo-image]: https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png
 [expo-url]: https://snack.expo.io/@3axap4ehko/react-native-katex

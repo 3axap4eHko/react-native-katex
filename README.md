@@ -1,6 +1,7 @@
 # React Native [<img src="https://katex.org/img/katex-logo-black.svg" width="130" alt="KaTeX">](https://katex.org/)
 
-[react-native-webview](https://github.com/react-native-community/react-native-webview) bundled with [KaTeX](https://github.com/Khan/KaTeX)
+React Native library that uses [WebView](https://github.com/react-native-community/react-native-webview) to render [KaTeX](https://github.com/Khan/KaTeX) mathematical expressions.
+This approach enables the display of complex math formulas directly within React Native applications, facilitating their use in educational, scientific, and any other context where mathematical notation is required.
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]

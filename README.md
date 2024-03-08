@@ -71,8 +71,8 @@ Copyright (c) 2017-2024 Ivan Zakharchanka
 [npm-url]: https://www.npmjs.com/package/react-native-katex
 [npm-image]: https://img.shields.io/npm/v/react-native-katex.svg
 
-[github-url]: https://github.com/3axap4eHko/react-native-katex/actions
-[github-image]: https://github.com/3axap4eHko/react-native-katex/workflows/Github%20CI/badge.svg?branch=master
+[github-url]: https://github.com/3axap4eHko/react-native-katex/actions/workflows/build.yml
+[github-image]: https://github.com/3axap4eHko/react-native-katex/actions/workflows/build.yml/badge.svg
 
 [expo-image]: https://raw.githubusercontent.com/3axap4eHko/react-native-katex/master/screenshot.png
 [expo-url]: https://snack.expo.io/@3axap4ehko/react-native-katex

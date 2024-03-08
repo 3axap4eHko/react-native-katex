@@ -1,15 +1,10 @@
 import React from 'react';
-import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
+import { WebViewSharedProps } from 'react-native-webview/lib/WebViewTypes';
 
 import katexStyle from './katex-style';
 import katexScript from './katex-script';
-
-export interface TrustContext {
-  command: string
-  url: string
-  protocol: string
-}
 
 export interface KatexOptions {
   displayMode?: boolean;
@@ -23,8 +18,8 @@ export interface KatexOptions {
   colorIsTextColor?: boolean;
   maxSize?: number;
   maxExpand?: number;
-  strict?: boolean | string | Function;
-  trust?: boolean | ((context: TrustContext) => boolean);
+  strict?: boolean | string;
+  trust?: boolean;
   globalGroup?: boolean;
 }
 
@@ -74,20 +69,48 @@ html, body {
 }
 `;
 
-export interface KatexProps extends ContentOptions {
-  style: StyleProp<ViewStyle>;
-  onLoad: any;
-  onError: any;
-}
+export interface KatexProps extends ContentOptions, Omit<WebViewSharedProps, 'source'> {}
 
-export default function Katex({ style, onLoad, onError, ...options }: KatexProps) {
-  return <WebView
-      style={style}
-      source={{ html: getContent(options) }}
-      onLoad={onLoad}
-      onError={onError}
-      renderError={onError}
-  />;
+export default function Katex({
+  displayMode,
+  output,
+  leqno,
+  fleqn,
+  throwOnError,
+  errorColor,
+  macros,
+  minRuleThickness,
+  colorIsTextColor,
+  maxSize,
+  maxExpand,
+  strict,
+  trust,
+  globalGroup,
+  ...webViewProps
+}: KatexProps) {
+  return (
+    <WebView
+      {...webViewProps}
+      source={{
+        html: getContent({
+          displayMode,
+          output,
+          leqno,
+          fleqn,
+          throwOnError,
+          errorColor,
+          macros,
+          minRuleThickness,
+          colorIsTextColor,
+          maxSize,
+          maxExpand,
+          strict,
+          trust,
+          globalGroup,
+        }),
+      }}
+    />
+  );
 }
 
 Katex.defaultProps = {
@@ -99,6 +122,4 @@ Katex.defaultProps = {
   style: defaultStyle,
   macros: {},
   colorIsTextColor: false,
-  onLoad: Boolean,
-  onError: Boolean,
 };

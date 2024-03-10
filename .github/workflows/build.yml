@@ -5,28 +5,10 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Run CI/CD Pipeline
+        uses: zource-dev/action@v1
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org/
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
-
-      - name: Install dependencies
-        run: |
-          pnpm i --frozen-lockfile
-
-      - name: Run build process
-        run: |
-          pnpm build
+          node_version: '20.x'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          test: ''

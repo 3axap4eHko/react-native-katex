@@ -21,15 +21,17 @@
   },
   "homepage": "https://github.com/3axap4eHko/react-native-katex#readme",
   "dependencies": {
-    "react-native-webview": "^13.8.1"
+    "react-native-webview": "^13.12.2"
   },
   "peerDependencies": {
     "react": ">=16",
     "react-native": "*"
   },
   "devDependencies": {
-    "@types/react": "^18.2.64",
-    "katex": "^0.16.9",
-    "typescript": "^5.4.2"
-  }
+    "@types/react": "^18.3.7",
+    "katex": "^0.16.11",
+    "react": "^18.3.1",
+    "typescript": "^5.6.2"
+  },
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }

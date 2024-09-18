@@ -72,6 +72,7 @@ html, body {
 export interface KatexProps extends ContentOptions, Omit<WebViewSharedProps, 'source'> {}
 
 export default function Katex({
+  expression,
   displayMode,
   output,
   leqno,
@@ -93,6 +94,7 @@ export default function Katex({
       {...webViewProps}
       source={{
         html: getContent({
+          expression,
           displayMode,
           output,
           leqno,

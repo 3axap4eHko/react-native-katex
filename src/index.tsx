@@ -72,21 +72,23 @@ html, body {
 export interface KatexProps extends ContentOptions, Omit<WebViewSharedProps, 'source'> {}
 
 export default function Katex({
-  expression,
-  displayMode,
+  expression = '',
+  displayMode = false,
   output,
   leqno,
   fleqn,
-  throwOnError,
-  errorColor,
-  macros,
+  throwOnError = false,
+  errorColor = '#f00',
+  macros = {},
   minRuleThickness,
-  colorIsTextColor,
+  colorIsTextColor = false,
   maxSize,
   maxExpand,
   strict,
   trust,
   globalGroup,
+  inlineStyle = defaultInlineStyle,
+  style = defaultStyle,
   ...webViewProps
 }: KatexProps) {
   return (
@@ -109,19 +111,9 @@ export default function Katex({
           strict,
           trust,
           globalGroup,
+          inlineStyle,
         }),
       }}
     />
   );
 }
-
-Katex.defaultProps = {
-  expression: '',
-  displayMode: false,
-  throwOnError: false,
-  errorColor: '#f00',
-  inlineStyle: defaultInlineStyle,
-  style: defaultStyle,
-  macros: {},
-  colorIsTextColor: false,
-};

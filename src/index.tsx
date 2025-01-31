@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { WebViewSharedProps } from 'react-native-webview/lib/WebViewTypes';
 
@@ -48,11 +47,13 @@ ${katexScript}
 `;
 }
 
-const defaultStyle = StyleSheet.create({
+const defaultStyle = {
   root: {
-    height: 40,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-});
+};
 
 const defaultInlineStyle = `
 html, body {
@@ -87,16 +88,17 @@ export default function Katex({
   strict,
   trust,
   globalGroup,
+  inlineStyle = defaultInlineStyle,
   ...webViewProps
 }: KatexProps) {
   return (
     <WebView
-      inlineStyle={defaultInlineStyle}
       style={defaultStyle}
       {...webViewProps}
       source={{
         html: getContent({
           expression,
+          inlineStyle,
           displayMode,
           output,
           leqno,

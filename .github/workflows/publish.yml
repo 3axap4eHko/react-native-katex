@@ -1,0 +1,45 @@
+name: Publish package
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Build and check package contents without publishing
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: npm-publish-${{ github.repository }}-package
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: 24.18.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Install existing package manager
+        run: npm install --global pnpm@9.10.0
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build package
+        run: npm run build
+      - name: Prepare npm publishing
+        run: npm install --global npm@11.19.1
+      - name: Verify package identity
+        env:
+          EXPECTED_PACKAGE: react-native-katex
+        run: test "$(npm pkg get name | jq -r .)" = "$EXPECTED_PACKAGE"
+      - name: Check package contents
+        if: ${{ inputs.dry_run }}
+        run: npm publish --dry-run --access public
+      - name: Publish to npm
+        if: ${{ !inputs.dry_run }}
+        run: npm publish --access public
